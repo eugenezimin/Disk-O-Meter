@@ -28,7 +28,7 @@ DiskoMeter needs macOS 26 or later on a Mac with Apple silicon.
 
 ## Download
 
-The current version is 1.1.0. Download the disk image, which is the easiest way to install, or the ZIP archive, which holds the same app.
+The current version is 1.1.0, and the [release notes](RELEASE_NOTES.md) describe what each version brings. Download the disk image, which is the easiest way to install, or the ZIP archive, which holds the same app.
 
 - [DiskoMeter.dmg](https://github.com/eugenezimin/Disk-O-Meter/raw/main/downloads/DiskoMeter.dmg) (328 KB, SHA-256 `00bfe8eb85c5ed35762497241d8d07d6648764c7319041e27119466ecc86b6d9`)
 - [DiskoMeter.zip](https://github.com/eugenezimin/Disk-O-Meter/raw/main/downloads/DiskoMeter.zip) (283 KB, SHA-256 `94612dbd5de74a02032b2e64b8dbf85e845a20051433bdb8e0fd95c5dec0d325`)
