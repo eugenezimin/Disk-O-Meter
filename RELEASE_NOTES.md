@@ -1,5 +1,9 @@
 # DiskoMeter release notes
 
+## 1.1.1, November 8, 2026
+
+DiskoMeter now has its own icon, a gauge whose arc runs from the app's read blue through violet to its write red on a dark tile, which replaces the generic app icon in Finder, in the About panel and in the Login Items list of System Settings. Nothing else changes, and an installed 1.1.0 can simply be replaced with this version.
+
 ## 1.1.0, November 8, 2026
 
 This is the first public release of DiskoMeter, a menu bar app for macOS 26 and later on Apple silicon that records how much your Mac's internal SSD reads and writes each day and shows which processes do the writing.
