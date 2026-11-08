@@ -1,3 +1,5 @@
+<p align="center"><img src="icon.png" width="128" alt="The DiskoMeter icon, a gauge running from blue to red on a dark tile"></p>
+
 # DiskoMeter
 
 A small menu bar app that shows how much your Mac's internal SSD reads and writes each day, and which processes do the writing.
@@ -28,10 +30,10 @@ DiskoMeter needs macOS 26 or later on a Mac with Apple silicon.
 
 ## Download
 
-The current version is 1.1.0, and the [release notes](RELEASE_NOTES.md) describe what each version brings. Download the disk image, which is the easiest way to install, or the ZIP archive, which holds the same app.
+The current version is 1.1.1, and the [release notes](RELEASE_NOTES.md) describe what each version brings. Download the disk image, which is the easiest way to install, or the ZIP archive, which holds the same app.
 
-- [DiskoMeter.dmg](https://github.com/eugenezimin/Disk-O-Meter/raw/main/downloads/DiskoMeter.dmg) (328 KB, SHA-256 `00bfe8eb85c5ed35762497241d8d07d6648764c7319041e27119466ecc86b6d9`)
-- [DiskoMeter.zip](https://github.com/eugenezimin/Disk-O-Meter/raw/main/downloads/DiskoMeter.zip) (283 KB, SHA-256 `94612dbd5de74a02032b2e64b8dbf85e845a20051433bdb8e0fd95c5dec0d325`)
+- [DiskoMeter.dmg](https://github.com/eugenezimin/Disk-O-Meter/raw/main/downloads/DiskoMeter.dmg) (1.3 MB, SHA-256 `5e3fa090ff1cc64c1d0cb81a2ee7c5e7f2a9b25b8bbfdeddb137ca7e4c390e20`)
+- [DiskoMeter.zip](https://github.com/eugenezimin/Disk-O-Meter/raw/main/downloads/DiskoMeter.zip) (1.2 MB, SHA-256 `fc5551315cb562a41419d203232660a7ea2c9bfda52e43bb0709ef707fd5352a`)
 
 ## Installing
 
