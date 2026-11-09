@@ -2,10 +2,10 @@
 
 # DiskoMeter
 
-A small menu bar app that shows how much your Mac's internal SSD reads and writes each day, and which processes do the writing.
+A small menu bar app that shows how much your Mac's internal SSD and your external disks read and write each day, and which processes do the writing.
 
 <p align="center">
-  <img src="screenshots/usage-light.png" width="420" alt="The Usage tab for a week, with read and written totals, a per-day average and a bar chart of each day">
+  <img src="screenshots/usage-light.png" width="420" alt="The Usage tab for a week with the internal SSD chosen, showing read and written totals, a per-day average and a bar chart of each day">
   <img src="screenshots/processes-light.png" width="420" alt="The Processes tab for the same week, listing kernel_task, swift-frontend, mds_stores, Xcode and Safari by bytes written">
 </p>
 
@@ -13,11 +13,13 @@ Every write wears an SSD a little, and on most modern Macs the drive is built in
 
 ## What you get
 
-The menu bar shows today's writes in three digits, such as `27.9 GB`, so a glance is enough to notice a day that is running hot. The Usage tab shows how much was read and written during the chosen period, with an average per day and a chart that has a bar for each day, or for each week or month when you pick a long custom range. The arrows step back through earlier weeks and months, and Today brings you back to the present.
+The menu bar shows today's writes to the internal SSD in three digits, such as `27.9 GB`, so a glance is enough to notice a day that is running hot. The Usage tab shows how much was read and written during the chosen period, with an average per day and a chart whose bars follow the length of the period, one pair for every hour of a single day, one for every day of a week or a month, and one for every week or month when you pick a long custom range. The arrows step back through earlier days, weeks and months, and Today brings you back to the present.
+
+A menu at the top of the Usage tab switches between the internal SSD and your external disks, each of which keeps its own history from the moment DiskoMeter first sees it. A disk you have unplugged stays in the menu, so you can still look back at what it read and wrote while it was connected.
 
 The Processes tab answers the next question, which is who did it. It lists every process that read or wrote during the same period, the biggest writers first, and lets you filter the list by name and sort it by bytes written, bytes read, total I/O or name. It can also narrow the list to your own apps or to the system's background processes, such as Spotlight's `mds_stores` or Time Machine's `backupd`, which are often the busiest of all.
 
-Both tabs follow the light or dark appearance you have chosen for macOS, as these month-long views in dark mode show.
+The Settings tab beside them holds Launch at login, Full process visibility, the About button and Quit. Every tab follows the light or dark appearance you have chosen for macOS, as these month-long views in dark mode show.
 
 <p align="center">
   <img src="screenshots/usage-dark.png" width="420" alt="The Usage tab in dark mode for a month, with a bar pair for every day">
@@ -30,39 +32,40 @@ DiskoMeter needs macOS 26 or later on a Mac with Apple silicon.
 
 ## Download
 
-The current version is 1.1.1, and the [release notes](RELEASE_NOTES.md) describe what each version brings. Download the disk image, which is the easiest way to install, or the ZIP archive, which holds the same app.
+The current version is 1.2.0, signed with a Developer ID and notarized by Apple. Download the disk image, which is the easiest way to install, or the ZIP archive, which holds the same app.
 
-- [DiskoMeter.dmg](https://github.com/eugenezimin/Disk-O-Meter/raw/main/downloads/DiskoMeter.dmg) (1.3 MB, SHA-256 `5e3fa090ff1cc64c1d0cb81a2ee7c5e7f2a9b25b8bbfdeddb137ca7e4c390e20`)
-- [DiskoMeter.zip](https://github.com/eugenezimin/Disk-O-Meter/raw/main/downloads/DiskoMeter.zip) (1.2 MB, SHA-256 `fc5551315cb562a41419d203232660a7ea2c9bfda52e43bb0709ef707fd5352a`)
+- [DiskoMeter-1.2.0.dmg](https://github.com/eugenezimin/Disk-O-Meter/releases/download/v1.2.0/DiskoMeter-1.2.0.dmg)
+- [DiskoMeter-1.2.0.zip](https://github.com/eugenezimin/Disk-O-Meter/releases/download/v1.2.0/DiskoMeter-1.2.0.zip)
+
+Every version is published on the [Releases](https://github.com/eugenezimin/Disk-O-Meter/releases) page together with a `SHA256SUMS.txt` that holds the checksums of both files, and the [release notes](RELEASE_NOTES.md) describe what each version brings.
 
 ## Installing
 
 1. Open `DiskoMeter.dmg` and drag DiskoMeter onto the Applications folder beside it. If you downloaded the ZIP instead, double-click it and move the unpacked `DiskoMeter.app` into `/Applications`.
-2. Open DiskoMeter from the Applications folder. The app is free and isn't notarized by Apple, so the first launch is stopped with a message that Apple could not verify it.
-3. Open System Settings, go to Privacy & Security, scroll down to the note about DiskoMeter and click Open Anyway, then confirm with your password or Touch ID. macOS remembers the choice, so this happens only once.
-4. Look for the drive icon in the menu bar and click it. To have DiskoMeter start with your Mac, turn on Launch at login at the bottom of the popover.
+2. Open DiskoMeter from the Applications folder. Because it was downloaded from the internet, macOS asks once whether you want to open it, and since Apple has checked the app, a click on Open is all it takes.
+3. Look for the drive icon in the menu bar and click it. To have DiskoMeter start with your Mac, turn on Launch at login on the Settings tab.
 
-If you prefer the terminal, `xattr -dr com.apple.quarantine /Applications/DiskoMeter.app` removes the download flag and lets the app open straight away, in place of steps 2 and 3.
+To update from an earlier version, turn off Full process visibility on the Settings tab first, replace the app in Applications, and turn the switch back on. Versions before 1.2.0 were signed ad hoc, and because the helper's signature changes with 1.2.0, macOS may ask you to approve it once more. Your history carries over.
 
 Because DiskoMeter can only count from the moment it first runs, the first day is a partial one, and the history grows from there.
 
 ## Seeing system processes
 
-macOS lets an ordinary app read the disk counters of your own processes only, which leaves out the system's background services, and those often write the most. To see them, turn on Full process visibility at the bottom of the popover, or click Enable Full Visibility on the Processes tab. DiskoMeter then installs a small helper that runs in the background with administrator rights, and macOS asks you to approve it under System Settings › General › Login Items & Extensions. The helper only reads the per-process counters, which are process names and byte counts, and hands them to DiskoMeter. It writes nothing and answers only programs signed with DiskoMeter's identifier, and turning the switch off removes it again.
+macOS lets an ordinary app read the disk counters of your own processes only, which leaves out the system's background services, and those often write the most. To see them, turn on Full process visibility on the Settings tab, or click Enable Full Visibility on the Processes tab. DiskoMeter then installs a small helper that runs in the background with administrator rights, and macOS asks you to approve it under System Settings › General › Login Items & Extensions. The helper only reads the per-process counters, which are process names and byte counts, and hands them to DiskoMeter. It writes nothing and answers only DiskoMeter itself, signed by the same developer, and turning the switch off removes it again.
 
 ## Your data
 
-Everything DiskoMeter records stays on your Mac, because the app makes no network connections and keeps its records in `~/Library/Application Support/DiskoMeter` as small JSON files, one for the daily totals and one per day for the processes.
+Everything DiskoMeter records stays on your Mac, because the app makes no network connections and keeps its records in `~/Library/Application Support/DiskoMeter` as small JSON files, one for the daily totals of every disk, one per day for the hourly figures and one per day for the processes.
 
 ## What the numbers mean
 
-The figures are what the Mac sends to and fetches from the SSD, so they include everything that touches the drive, from apps and swap to Spotlight indexing, local Time Machine snapshots and system updates. They aren't the amount written to the flash chips inside the drive, which is usually somewhat higher and which Apple's SSDs don't report.
+The figures are what the Mac sends to and fetches from each disk, so they include everything that touches the drive, from apps and swap to Spotlight indexing, local Time Machine snapshots and system updates. They aren't the amount written to the flash chips inside an SSD, which is usually somewhat higher and which Apple's SSDs don't report. An external disk is counted only while it is connected and DiskoMeter is running, or earlier during the same connection.
 
-The process list can't account for every byte, because a process that starts and quits within a few seconds may never be seen, some writes are made by the system on a process's behalf, and the per-process counters include external drives as well. That is why the list ends with an Other / unattributed row, and why its total may differ from the SSD's.
+The process list can't account for every byte, because a process that starts and quits within a few seconds may never be seen, some writes are made by the system on a process's behalf, and the per-process counters include external drives as well. That is why the list ends with an Other / unattributed row, and why its total may differ from the internal SSD's.
 
 ## Removing DiskoMeter
 
-First turn off Full process visibility and Launch at login in the popover, so neither the helper nor the login item is left behind. Then quit the app, move `DiskoMeter.app` from Applications to the Trash, and, if you don't want to keep the history, delete `~/Library/Application Support/DiskoMeter`.
+First turn off Full process visibility and Launch at login on the Settings tab, so neither the helper nor the login item is left behind. Then quit the app, move `DiskoMeter.app` from Applications to the Trash, and, if you don't want to keep the history, delete `~/Library/Application Support/DiskoMeter`.
 
 ## License
 
