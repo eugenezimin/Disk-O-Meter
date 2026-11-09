@@ -1,5 +1,17 @@
 # DiskoMeter release notes
 
+## 1.2.0, November 8, 2026
+
+DiskoMeter 1.2.0 is the first version signed with a Developer ID and notarized by Apple, so it opens like any other app, without the detour through Privacy & Security that earlier versions needed. It also reaches beyond the internal SSD to your external disks, charts a single day hour by hour, and gathers its switches on a tab of their own.
+
+The Usage tab now opens with a menu that chooses the disk. The internal SSD is the default, and every external disk on USB or Thunderbolt keeps a history of its own from the moment DiskoMeter first sees it. The app recognizes a disk by its serial number, so the history follows it from one port or one session to the next, and a disk you have unplugged stays in the menu, so you can still look back at what it read and wrote. Cards in the built-in SD reader and mounted disk images are left out.
+
+When the period is a single day, whether you pick Day or a one-day custom range, the chart now shows a pair of bars for every hour, which makes it easy to see when the heavy writing happened, and its scale switches to megabytes on a quiet day. Weeks and months keep a pair of bars per day. Hourly figures are kept from this version on, so a day from before the update shows its totals with a short note in place of the bars.
+
+A new Settings tab beside Usage and Processes holds Launch at login, Full process visibility, the About button with the version, and Quit. While the helper waits for your approval, a note under its switch takes you straight to the right page of System Settings. The disk name above the tabs and the line of boot-time totals below them are gone, which leaves the popover a little shorter and the same height on every tab.
+
+Your history carries over, and to be safe, turn off Full process visibility before you replace an earlier version and turn it back on afterwards. The helper is now signed together with the app and only answers a DiskoMeter signed by the same developer, and because its signature changes with this release, macOS may ask you to approve it again in System Settings › General › Login Items & Extensions.
+
 ## 1.1.1, November 8, 2026
 
 DiskoMeter now has its own icon, a gauge whose arc runs from the app's read blue through violet to its write red on a dark tile, which replaces the generic app icon in Finder, in the About panel and in the Login Items list of System Settings. Nothing else changes, and an installed 1.1.0 can simply be replaced with this version.
@@ -20,4 +32,4 @@ Everything DiskoMeter records stays on your Mac, because the app makes no networ
 
 A few limits come with the approach, the first being that counting begins when the app first runs, so the first day is a partial one. A process that starts and quits within a few seconds may never be seen, and the per-process figures include external drives, which is why they may not add up to the SSD's total. The app is signed ad hoc rather than notarized by Apple, so the first launch needs Open Anyway in System Settings › Privacy & Security, as the [README](README.md#installing) explains.
 
-Download [DiskoMeter.dmg](https://github.com/eugenezimin/Disk-O-Meter/raw/main/downloads/DiskoMeter.dmg) or [DiskoMeter.zip](https://github.com/eugenezimin/Disk-O-Meter/raw/main/downloads/DiskoMeter.zip).
+Every version from 1.2.0 on can be downloaded from the [Releases](https://github.com/eugenezimin/Disk-O-Meter/releases) page.
