@@ -1,4 +1,16 @@
-# DiskoMeter release notes
+# Disk-O-Meter release notes
+
+## 2.0.0, November 9, 2026
+
+DiskoMeter is now Disk-O-Meter, and version 2.0.0 lets you decide what the menu bar shows, warns you when a disk writes more than you allow, and shows what every process reads as well as what it writes.
+
+The new Menu Bar section of the Settings tab shapes the label beside the drive icon. It can stay on one disk or follow the disk you pick on the Usage tab, and it can show what was written, what was read, both side by side or their total, either for today or as the current rate, such as `12.4 MB/s`. The number keeps two, three or four digits or rounds to whole units, the unit can be written in full, shortened to `27.9G` or left out, the decimal point can follow your region, and the icon can be hidden.
+
+You can also set up to two write limits, each an amount a disk may write in a day, a week or a month, such as 50 GB a day on the internal SSD or 1 TB a month on a backup disk. A bar under each limit shows how much of it the current period has used, and the Usage tab shows the same share on its Written tile. When a disk passes a limit, the menu bar label turns red until the period ends and a notification tells you, once per limit and period.
+
+On the Processes tab, every process now has a blue bar for what it read under the red one for what it wrote, so a process that mostly reads stands out from one that mostly writes. The Settings tab uses the same size of text as the Processes tab, and when it needs more room the popover grows to show every setting at once, scrolling only on a screen too small to fit them.
+
+Because the app now has a new name, the update works a little differently this time. In the old DiskoMeter, turn off Full process visibility and Launch at login on the Settings tab and quit the app, then move `DiskoMeter.app` from Applications to the Trash and install `Disk-O-Meter.app` in its place. Open Disk-O-Meter, turn both switches back on and approve the helper again if macOS asks. Your history stays where it was and carries over by itself.
 
 ## 1.2.0, November 8, 2026
 
